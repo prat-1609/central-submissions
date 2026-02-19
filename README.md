@@ -1,4 +1,4 @@
-# 🚀 Central Project Repository HII
+# 🚀 Central Project Repository
 
 Welcome to the **Official Integration Repository** of our project.
 
