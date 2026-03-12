@@ -134,11 +134,6 @@ const InterviewConfig = () => {
                 <option value="Java">☕ Java</option>
                 <option value="Data Structures">💚 Data Structuress</option>
                 <option value="Full-Backend"> Backend</option>
-                <input
-                  type="text"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                />
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                 <svg
