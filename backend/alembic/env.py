@@ -7,9 +7,9 @@ from app.core.config import settings
 from app.db.base import Base  # This is where your metadata lives
 
 # 2. IMPORTANT: Import your models so Base.metadata is populated
-from app.models.interview import InterviewSession, InterviewQuestion, Answer
-from app.models.user import User 
-from app.models.question import Subject, Question, question_subjects 
+from app.models.interview_model import InterviewSession, InterviewQuestion, Answer  # noqa
+from app.models.user_model import User  # noqa
+from app.models.question_model import Subject, Question, question_subjects  # noqa
 
 # 3. Access the Alembic Config
 config = context.config
