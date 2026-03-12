@@ -11,8 +11,10 @@ from datetime import datetime, timezone
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.repositories.interview_repository import interview_repository
-from app.repositories.user_repository import user_repository
+from database.repositories.interview_repository import interview_repository
+from database.repositories.user_repository import user_repository
+from ai.services.question_generator import generate_questions
+from ai.services.check_answers import check_answer_correctness
 from app.schemas.interview_schema import InterviewStartRequest, SubmitAnswerRequest
 
 logger = logging.getLogger(__name__)
@@ -61,7 +63,6 @@ async def start_interview(db: Session, payload: InterviewStartRequest, user_id: 
 
     # 3. Trigger AI Generation in a threadpool to avoid blocking the event loop
     try:
-        from app.services.question_generator import generate_questions
         ai_response = await run_in_threadpool(generate_questions, payload, student_id=student_id)
 
         generated_questions = ai_response.get("questions", [])
@@ -256,8 +257,6 @@ async def get_summary(db: Session, session_id: int, user_id: int) -> dict:
         raise HTTPException(status_code=404, detail="No answers found for this session.")
 
     student_id = str(user_id)
-    from app.services.check_answers import check_answer_correctness
-
     # 1. Evaluate any answers that haven't been scored yet
     for answer_record in session_answers:
         if answer_record.evaluation_score is None:

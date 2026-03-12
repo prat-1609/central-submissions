@@ -7,7 +7,7 @@ import logging
 
 from sqlalchemy.orm import Session
 
-from app.repositories.user_repository import user_repository
+from database.repositories.user_repository import user_repository
 
 logger = logging.getLogger(__name__)
 

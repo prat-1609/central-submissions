@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.controllers import user_controller
 from app.core.dependencies import get_current_user
-from app.db.session import get_db
+from database.session import get_db
 from app.utils.response import StandardResponse, success_response
 
 router = APIRouter()

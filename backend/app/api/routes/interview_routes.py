@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from app.controllers import interview_controller
 from app.core.dependencies import get_current_user
-from app.db.session import get_db
+from database.session import get_db
 from app.schemas.interview_schema import InterviewStartRequest, SubmitAnswerRequest
 from app.core.rate_limit import limiter
 

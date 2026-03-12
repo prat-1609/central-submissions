@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from app.core.google_auth import verify_google_token
 from app.core.security import create_access_token, hash_password, verify_password
-from app.repositories.user_repository import user_repository
+from database.repositories.user_repository import user_repository
 from app.schemas.auth_schema import GoogleLoginRequest, LoginRequest, SignupRequest
 
 logger = logging.getLogger(__name__)

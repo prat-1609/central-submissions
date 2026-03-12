@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add project root to sys.path so the ai/ module can be imported
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,8 +15,8 @@ from app.api.router import api_router
 from app.core.config import settings
 from app.core.logging import configure_logging
 from app.core.rate_limit import limiter
-from app.db.base import Base
-from app.db.session import engine
+from database.base import Base
+from database.session import engine
 
 # Configure structured logging at startup
 configure_logging()

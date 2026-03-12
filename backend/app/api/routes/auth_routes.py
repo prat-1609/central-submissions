@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 
 from app.controllers import auth_controller
 from app.core.dependencies import get_current_user
-from app.db.session import get_db
+from database.session import get_db
 from app.schemas.auth_schema import GoogleLoginRequest, LoginRequest, SignupRequest
 from app.utils.response import StandardResponse
 
